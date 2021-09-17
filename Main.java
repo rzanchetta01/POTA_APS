@@ -24,7 +24,15 @@ public class Main {
         TestBubbleSort(vetor10);
         TestBubbleSort(vetor100);
         TestBubbleSort(vetor1k);
-        TestBubbleSort(vetor10k);       
+        TestBubbleSort(vetor10k);    
+        
+        /*
+        TestInsertionSort(vetor5);
+        TestInsertionSort(vetor10);
+        TestInsertionSort(vetor100);
+        TestInsertionSort(vetor1k);
+        TestInsertionSort(vetor10k);
+        */
     }
 
     public static void RandomVet(int vetor[]) {
@@ -43,4 +51,10 @@ public class Main {
         System.out.println("Numero de comparações: "+bs.getComparacoes());
     }
    
+    public static void TestInsertionSort(int vetor[]) {
+
+        InsertionSort is = new InsertionSort();
+        is.InsertionSortRecursivo(vetor, 1, vetor.length - 1);
+        System.out.println("Numero de comparações: "+is.getComparacoes());
+    }
 }
