@@ -1,15 +1,6 @@
 public class BubbleSort {
     
-    int comparacoes;
-    int vetor[] = new int[5];
-    int n;
-
-
-    public BubbleSort(int comparacoes, int vetor[], int n) {
-        this.comparacoes = comparacoes;       
-        this.n = n;
-        this.vetor = vetor;
-    }
+    private int comparacoes;
 
     public int getComparacoes() {
         return comparacoes;
@@ -18,7 +9,7 @@ public class BubbleSort {
         comparacoes ++;
     }
 
-    public void BubbleSortRecursivo(int vetor[], int n, int comparacoes) {
+    public void BubbleSortRecursivo(int vetor[], int n) {
 
         setComparacoes();
         if (n == 1) { 
@@ -35,7 +26,8 @@ public class BubbleSort {
                 vetor[i+1] = temp;
             }
         }
-            
-        BubbleSortRecursivo(vetor, n-1, comparacoes);
+
+           
+        BubbleSortRecursivo(vetor, n-1);
     }
 }
