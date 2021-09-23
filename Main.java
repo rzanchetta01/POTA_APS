@@ -1,5 +1,4 @@
 import java.util.Random;
-
 public class Main {
     
 
@@ -20,19 +19,20 @@ public class Main {
         RandomVet(vetor10k);
 
         //Teste de comparações totais nos vetores usando BubbleSort
-        TestBubbleSort(vetor10);
+        TestBubbleSort(vetor5);
         TestBubbleSort(vetor10);
         TestBubbleSort(vetor100);
         TestBubbleSort(vetor1k);
         TestBubbleSort(vetor10k);    
         
-        /*
+        System.out.println("--------------------------");
+
         TestInsertionSort(vetor5);
         TestInsertionSort(vetor10);
         TestInsertionSort(vetor100);
         TestInsertionSort(vetor1k);
         TestInsertionSort(vetor10k);
-        */
+       
     }
 
     public static void RandomVet(int vetor[]) {
@@ -54,7 +54,8 @@ public class Main {
     public static void TestInsertionSort(int vetor[]) {
 
         InsertionSort is = new InsertionSort();
-        is.InsertionSortRecursivo(vetor, 1, vetor.length - 1);
-        System.out.println("Numero de comparações: "+is.getComparacoes());
+        is.InsertionSortRecursivo(vetor, vetor.length);
+        System.out.println("Numero de comparações: "+ is.getComparacoes());
+         
     }
 }

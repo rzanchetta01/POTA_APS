@@ -9,22 +9,26 @@ public class InsertionSort {
         comparacoes ++;
     }
 
-   public void InsertionSortRecursivo(int vetor[], int i,  int n) {       
-        
-        
-        int value = vetor[i];
-        int j = i;
-
-        while (j > 0 && vetor[j - 1] > value) {                        
-            vetor[j] = vetor[j - 1];
-            j--;
-        }
-        vetor[j] = value;  
-        
-        if (i + 1 <= n) {
-            
-            InsertionSortRecursivo(vetor, i + 1, n);
-        }
    
+        public void InsertionSortRecursivo(int vetor[], int n) {
+            
+        if (n <= 1) {
+            return;
+        }
+                       
+        int ultimo = vetor[n-1];
+        int i = n-2;
+      
+        setComparacoes();
+        while (i >= 0 && vetor[i] > ultimo) {   
+            
+            vetor[i+1] = vetor[i];
+            i--;
+        }
+        vetor[i+1] = ultimo;
+
+        InsertionSortRecursivo( vetor, n-1 );
     }
+	
+    
 }
