@@ -27,12 +27,21 @@ public class Main {
         
         System.out.println("--------------------------");
 
+        //Teste de comparações totais nos vetores usando InsertSort
         TestInsertionSort(vetor5);
         TestInsertionSort(vetor10);
         TestInsertionSort(vetor100);
         TestInsertionSort(vetor1k);
         TestInsertionSort(vetor10k);
        
+        System.out.println("--------------------------");
+
+        //Teste de comparações totais nos vetores usando SelectionSort
+        TestSelectionSort(vetor5);
+        TestSelectionSort(vetor10);
+        TestSelectionSort(vetor100);
+        TestSelectionSort(vetor1k);
+        TestSelectionSort(vetor10k);
     }
 
     public static void RandomVet(int vetor[]) {
@@ -48,14 +57,20 @@ public class Main {
 
         BubbleSort bs = new BubbleSort();
         bs.BubbleSortRecursivo(vetor, vetor.length);
-        System.out.println("Numero de comparações: "+bs.getComparacoes());
+        System.out.println("Numero de comparações: " + bs.getComparacoes());
     }
    
     public static void TestInsertionSort(int vetor[]) {
 
         InsertionSort is = new InsertionSort();
         is.InsertionSortRecursivo(vetor, vetor.length);
-        System.out.println("Numero de comparações: "+ is.getComparacoes());
-         
+        System.out.println("Numero de comparações: " + is.getComparacoes());        
+    }
+
+    public static void TestSelectionSort(int vetor[]) {
+
+        SelectionSort ss = new SelectionSort();
+        ss.recurSelectionSort(vetor, vetor.length, 0);
+        System.out.println("Numero de comparações: "+ ss.getComparacoes());       
     }
 }
