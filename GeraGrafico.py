@@ -26,7 +26,7 @@ for line in dataset:
     algoritmo5.append(espaco)
     mediaComparacoes5.append(valueInicial)
     line = line.strip()
-    X, Y = line.split(',')
+    X, Y = line.split('|')
     algoritmo5.append(X)  
     mediaComparacoes5.append(Y)
 
@@ -45,7 +45,7 @@ for line in dataset:
     algoritmo10.append(espaco)
     mediaComparacoes10.append(valueInicial)
     line = line.strip()
-    X, Y = line.split(',')
+    X, Y = line.split('|')
     algoritmo10.append(X)  
     mediaComparacoes10.append(Y)
 
@@ -63,7 +63,7 @@ for line in dataset:
     algoritmo100.append(espaco)
     mediaComparacoes100.append(valueInicial)
     line = line.strip()
-    X, Y = line.split(',')
+    X, Y = line.split('|')
     algoritmo100.append(X)  
     mediaComparacoes100.append(Y)
 
@@ -82,7 +82,7 @@ for line in dataset:
     algoritmo1k.append(espaco)
     mediaComparacoes1k.append(valueInicial)
     line = line.strip()
-    X, Y = line.split(',')
+    X, Y = line.split('|')
     algoritmo1k.append(X)  
     mediaComparacoes1k.append(Y)
 
@@ -101,7 +101,7 @@ for line in dataset:
     algoritmo10k.append(espaco)
     mediaComparacoes10k.append(valueInicial)
     line = line.strip()
-    X, Y = line.split(',')
+    X, Y = line.split('|')
     algoritmo10k.append(X)  
     mediaComparacoes10k.append(Y)
 

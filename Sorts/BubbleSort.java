@@ -1,9 +1,9 @@
 package Sorts;
 public class BubbleSort {
     
-    private int comparacoes;
+    private int comparacoes = 1;
 
-    public int getComparacoes() {
+    public double getComparacoes() {
         return comparacoes;
     }
     public void setComparacoes() {
@@ -11,28 +11,22 @@ public class BubbleSort {
     }
 
     public void resetComapacoes() {
-        comparacoes = 0;
+        comparacoes = 1;
     }
 
-    public void BubbleSortRecursivo(int vetor[], int n) {
-
-        setComparacoes();
-        if (n == 1) { 
-            return;                      
-        }           
-            
-        for (int i=0; i<n-1; i++) {
-
+    public void bubbleSort(int vetor[]) {
+    
+        for (int i = 0; i < vetor.length-1; i++) {
             setComparacoes();
-            if (vetor[i] > vetor[i+1])
-            {               
-                int temp = vetor[i];
-                vetor[i] = vetor[i+1];
-                vetor[i+1] = temp;
+            for (int j = 0; j < vetor.length-i-1; j++) {
+                setComparacoes();
+                if (vetor[j] > vetor[j+1])
+                {             
+                    int temp = vetor[j];
+                    vetor[j] = vetor[j+1];
+                    vetor[j+1] = temp;
+                }
             }
-        }
-
-           
-        BubbleSortRecursivo(vetor, n-1);
+        }                                
     }
 }

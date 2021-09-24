@@ -1,9 +1,9 @@
 package Sorts;
 public class SelectionSort {
     
-    private int comparacoes;
+    private int comparacoes = 1;
 
-    public int getComparacoes() {
+    public double getComparacoes() {
         return comparacoes;
     }
     
@@ -12,36 +12,26 @@ public class SelectionSort {
     }
     
     public void resetComapacoes() {
-        comparacoes = 0;
+        comparacoes = 1;
     }
 
-    public void recurSelectionSort(int vetor[], int n, int index) {
-       
-        if (index == n) {
-            return;
+    public void selectionSort(int vetor[]) {
+
+        for (int i = 0; i < vetor.length-1; i++) {
+            setComparacoes();
+            int min_idx = i;
+
+            for (int j = i+1; j < vetor.length; j++) {
+                setComparacoes();
+                if (vetor[j] < vetor[min_idx]) {
+                    min_idx = j;
+                }
+                    
+            }
+            
+            int temp = vetor[min_idx];
+            vetor[min_idx] = vetor[i];
+            vetor[i] = temp;
         }
-               
-        int aux = MenorValor(vetor, n-1, index);
-        
-        if (aux != index){
-
-           int temp = vetor[aux];
-           vetor[aux] = vetor[index];
-           vetor[index] = temp;
-        }
-       
-        recurSelectionSort(vetor, n, index + 1);
-    }
-
-    private int MenorValor(int vetor[], int j, int index) {   
-
-        setComparacoes();
-        if (index == j) {
-            return index;
-        }
-
-        int aux = MenorValor(vetor, j, index + 1);
-      
-        return (vetor[index] < vetor[aux]) ? index : aux;
     }
 }

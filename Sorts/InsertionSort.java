@@ -3,7 +3,7 @@ public class InsertionSort {
     
     private int comparacoes = 0;
        
-    public int getComparacoes() {
+    public double getComparacoes() {
         return comparacoes;
     }
     public void setComparacoes() {
@@ -15,24 +15,21 @@ public class InsertionSort {
     }
 
    
-        public void InsertionSortRecursivo(int vetor[], int n) {
-            
-        if (n <= 1) {
-            return;
-        }
-                       
-        int ultimo = vetor[n-1];
-        int i = n-2;
-      
-        setComparacoes();
-        while (i >= 0 && vetor[i] > ultimo) {   
-            
-            vetor[i+1] = vetor[i];
-            i--;
-        }
-        vetor[i+1] = ultimo;
+    public void insertionSort(int vetor[]) {
 
-        InsertionSortRecursivo( vetor, n-1 );
+        for (int i = 1; i < vetor.length; ++i) {
+            setComparacoes();
+            int aux = vetor[i];
+            int j = i - 1;
+ 
+            while (j >= 0 && vetor[j] > aux) {
+                
+                vetor[j + 1] = vetor[j];
+                j = j - 1;
+            }
+
+            vetor[j + 1] = aux;
+        }
     }
 	
     
