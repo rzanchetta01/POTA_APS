@@ -1,3 +1,4 @@
+package Sorts;
 public class BubbleSort {
     
     private int comparacoes;
@@ -7,6 +8,10 @@ public class BubbleSort {
     }
     public void setComparacoes() {
         comparacoes ++;
+    }
+
+    public void resetComapacoes() {
+        comparacoes = 0;
     }
 
     public void BubbleSortRecursivo(int vetor[], int n) {

@@ -1,4 +1,11 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Random;
+
+import Sorts.BubbleSort;
+import Sorts.InsertionSort;
+import Sorts.SelectionSort;
 public class Main {
     
 
@@ -18,30 +25,56 @@ public class Main {
         RandomVet(vetor1k);
         RandomVet(vetor10k);
 
-        //Teste de comparações totais nos vetores usando BubbleSort
-        TestBubbleSort(vetor5);
-        TestBubbleSort(vetor10);
-        TestBubbleSort(vetor100);
-        TestBubbleSort(vetor1k);
-        TestBubbleSort(vetor10k);    
+
+        String path5 = "T:\\UAM\\Pesquisa Ordenacao e Tecnica\\POTA_APS\\zmdVetor5.csv";
+        TestInsertionSort(vetor5, path5);
+        TestSelectionSort(vetor5, path5);
+        TestBubbleSort(vetor5, path5);
         
-        System.out.println("--------------------------");
+        
+        
+        String path10 = "T:\\UAM\\Pesquisa Ordenacao e Tecnica\\POTA_APS\\zmdVetor10.csv";
+        TestInsertionSort(vetor10, path10);
+        TestSelectionSort(vetor10, path10);
+        TestBubbleSort(vetor10, path10);
+        
+        
 
-        //Teste de comparações totais nos vetores usando InsertSort
-        TestInsertionSort(vetor5);
-        TestInsertionSort(vetor10);
-        TestInsertionSort(vetor100);
-        TestInsertionSort(vetor1k);
-        TestInsertionSort(vetor10k);
+        String path100 = "T:\\UAM\\Pesquisa Ordenacao e Tecnica\\POTA_APS\\zmdVetor100.csv";
+        TestInsertionSort(vetor100, path100);
+        TestSelectionSort(vetor100, path100);
+        TestBubbleSort(vetor100, path100);
+        
+        
+
+        String path1k = "T:\\UAM\\Pesquisa Ordenacao e Tecnica\\POTA_APS\\zmdVetor1000.csv";
+        TestInsertionSort(vetor1k, path1k);
+        TestSelectionSort(vetor1k, path1k);
+        TestBubbleSort(vetor1k, path1k);
+        
        
-        System.out.println("--------------------------");
 
-        //Teste de comparações totais nos vetores usando SelectionSort
-        TestSelectionSort(vetor5);
-        TestSelectionSort(vetor10);
-        TestSelectionSort(vetor100);
-        TestSelectionSort(vetor1k);
-        TestSelectionSort(vetor10k);
+        String path10k = "T:\\UAM\\Pesquisa Ordenacao e Tecnica\\POTA_APS\\zmdVetor10000.csv";
+        TestInsertionSort(vetor10k, path10k);
+        TestSelectionSort(vetor10k, path10k);
+        TestBubbleSort(vetor10k, path10k);
+        
+        
+
+    }
+    public static void GeraCSV(Integer mediaComparacoes, String nomeAlgoritmo, String path) {
+        
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
+            
+            bw.append(nomeAlgoritmo);
+            bw.append(",");
+            bw.append(mediaComparacoes.toString());
+            bw.newLine();
+            
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void RandomVet(int vetor[]) {
@@ -53,24 +86,62 @@ public class Main {
         }    
     }
 
-    public static void TestBubbleSort(int vetor[]) {
+    public static void TestBubbleSort(int vetor[], String path) {
 
+        long count = 0;
         BubbleSort bs = new BubbleSort();
-        bs.BubbleSortRecursivo(vetor, vetor.length);
-        System.out.println("Numero de comparações: " + bs.getComparacoes());
+        
+        for (int i = 0; i <50; i++) {
+            bs.BubbleSortRecursivo(vetor, vetor.length);
+            System.out.println("Numero de comparações: " + bs.getComparacoes());
+            count += bs.getComparacoes();
+            bs.resetComapacoes();
+        }
+
+        count = count/50;
+        int aux = (int) count;
+
+        GeraCSV(aux, "BubbleSort", path);
     }
    
-    public static void TestInsertionSort(int vetor[]) {
+    public static void TestInsertionSort(int vetor[], String path) {
 
+        long count = 0;
+       
         InsertionSort is = new InsertionSort();
-        is.InsertionSortRecursivo(vetor, vetor.length);
-        System.out.println("Numero de comparações: " + is.getComparacoes());        
+        
+        for (int i = 0; i <50; i++) {
+            is.InsertionSortRecursivo(vetor, vetor.length);
+            System.out.println("Numero de comparações: " + is.getComparacoes());
+            count += is.getComparacoes();
+            is.resetComapacoes();
+        }
+
+        count = count/50;
+        int aux = (int) count;
+
+        GeraCSV(aux, "InsertionSort", path);  
     }
 
-    public static void TestSelectionSort(int vetor[]) {
+    public static void TestSelectionSort(int vetor[], String path) {
 
-        SelectionSort ss = new SelectionSort();
-        ss.recurSelectionSort(vetor, vetor.length, 0);
-        System.out.println("Numero de comparações: "+ ss.getComparacoes());       
+        long count = 0;
+        SelectionSort ss = new SelectionSort();   
+
+        for (int i = 0; i <50; i++) {
+            ss.recurSelectionSort(vetor, vetor.length, 0);
+            System.out.println("Numero de comparações: "+ ss.getComparacoes());   
+            count += ss.getComparacoes();
+            ss.resetComapacoes();
+        }  
+
+        count = count/50;
+        int aux = (int) count;
+
+        GeraCSV(aux, "SelectionSort", path);  
     }
+
+    
+
+    
 }

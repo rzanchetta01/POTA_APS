@@ -1,3 +1,4 @@
+package Sorts;
 public class SelectionSort {
     
     private int comparacoes;
@@ -5,8 +6,13 @@ public class SelectionSort {
     public int getComparacoes() {
         return comparacoes;
     }
+    
     public void setComparacoes() {
         comparacoes ++;
+    }
+    
+    public void resetComapacoes() {
+        comparacoes = 0;
     }
 
     public void recurSelectionSort(int vetor[], int n, int index) {

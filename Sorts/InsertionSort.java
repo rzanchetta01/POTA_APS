@@ -1,3 +1,4 @@
+package Sorts;
 public class InsertionSort {
     
     private int comparacoes = 0;
@@ -7,6 +8,10 @@ public class InsertionSort {
     }
     public void setComparacoes() {
         comparacoes ++;
+    }
+    
+    public void resetComapacoes() {
+        comparacoes = 0;
     }
 
    
