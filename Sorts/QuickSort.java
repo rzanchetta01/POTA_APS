@@ -15,7 +15,7 @@ public class QuickSort {
         comparacoes = 0;
     }
 
-    public void InverteValor(int vetor[], int i, int j) {
+    private void InverteValor(int vetor[], int i, int j) {
         
         int temp = vetor[i];
         vetor[i] = vetor[j];
@@ -23,7 +23,7 @@ public class QuickSort {
 
     }
 
-    public int particiona(int vetor[], int menor, int maior) {
+    private int particiona(int vetor[], int menor, int maior) {
         
         int base = vetor[maior]; 
         int i = (menor - 1); 
