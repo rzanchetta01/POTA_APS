@@ -1,16 +1,10 @@
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Random;
+import java.util.*;
 
-import Sorts.BubbleSort;
-import Sorts.HeapSort;
-import Sorts.InsertionSort;
-import Sorts.MergeSort;
-import Sorts.QuickSort;
-import Sorts.SelectionSort;
+import Sorts.*;
 public class Main {
-    
     
     public static void main(String[] args) {
         
@@ -28,49 +22,22 @@ public class Main {
         RandomVet(vetor1k);
         RandomVet(vetor10k);
 
-
-
+        //Caminho de arquivo dos CSV
         String path5 = "T:\\UAM\\Pesquisa Ordenacao e Tecnica\\POTA_APS\\zmdVetor5.csv";
-        TestInsertionSort(vetor5, path5);
-        TestSelectionSort(vetor5, path5);
-        TestBubbleSort(vetor5, path5);
-        TestQuickSort(vetor5, path5);
-        TestMergeSort(vetor5, path5);
-        TestHeapSort(vetor5, path5);
-
         String path10 = "T:\\UAM\\Pesquisa Ordenacao e Tecnica\\POTA_APS\\zmdVetor10.csv";
-        TestInsertionSort(vetor10, path10);
-        TestSelectionSort(vetor10, path10);
-        TestBubbleSort(vetor10, path10);
-        TestQuickSort(vetor10, path10);
-        TestMergeSort(vetor10, path10);
-        TestHeapSort(vetor10, path10);
-
         String path100 = "T:\\UAM\\Pesquisa Ordenacao e Tecnica\\POTA_APS\\zmdVetor100.csv";
-        TestInsertionSort(vetor100, path100);
-        TestSelectionSort(vetor100, path100);
-        TestBubbleSort(vetor100, path100);
-        TestQuickSort(vetor100, path100);
-        TestMergeSort(vetor100, path100);
-        TestHeapSort(vetor100, path100);
-
         String path1k = "T:\\UAM\\Pesquisa Ordenacao e Tecnica\\POTA_APS\\zmdVetor1000.csv";
-        TestInsertionSort(vetor1k, path1k);
-        TestSelectionSort(vetor1k, path1k);
-        TestBubbleSort(vetor1k, path1k);
-        TestQuickSort(vetor1k, path1k);
-        TestMergeSort(vetor1k, path1k);
-        TestHeapSort(vetor1k, path1k);
-
         String path10k = "T:\\UAM\\Pesquisa Ordenacao e Tecnica\\POTA_APS\\zmdVetor10000.csv";
-        TestInsertionSort(vetor10k, path10k);
-        TestSelectionSort(vetor10k, path10k);
-        TestBubbleSort(vetor10k, path10k);
-        TestQuickSort(vetor10k, path10k);
-        TestMergeSort(vetor10k, path10k);
-        TestHeapSort(vetor10k, path10k);
 
+        //Faz os 50 testes com os 9 algoritmos de teste em cada tamanho de vetor, além de armazenar os resultados usando o GeraCSV
+        GeraTests(vetor5, path5);
+        GeraTests(vetor10, path10);
+        GeraTests(vetor100, path100);
+        GeraTests(vetor1k, path1k);
+        GeraTests(vetor10k, path10k);
+     
     }
+
     public static void GeraCSV(Double mediaComparacoes, String nomeAlgoritmo, String path) {
         
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
@@ -93,6 +60,19 @@ public class Main {
         for (int i = 0; i < vetor.length; i++) {
             vetor[i] = rnd.nextInt(20001);
         }    
+    }
+
+    public static void GeraTests(int vetor[], String path) {
+
+        TestHeapSort(vetor, path);  
+        TestCountSort(vetor, path);
+        TestBucketSort(vetor, path);
+        TestRadixSort(vetor, path);
+        TestInsertionSort(vetor, path);
+        TestMergeSort(vetor, path);
+        TestQuickSort(vetor, path);
+        TestBubbleSort(vetor, path);
+        TestSelectionSort(vetor, path);   
     }
 
     public static void TestBubbleSort(int vetor[], String path) {
@@ -200,6 +180,60 @@ public class Main {
         count = count/50;
         
         GeraCSV(count, "HeapSort", path);  
+    }
+
+    public static void TestCountSort (int vetor[], String path) {
+
+        double count = 0;
+        CountSort cs = new CountSort();
+
+        for (int i = 0; i <50; i++) {
+
+            cs.countSort(vetor);       
+            System.out.println("Numero de comparações: "+ cs.getComparacoes());   
+            count += cs.getComparacoes();
+            cs.resetComapacoes();
+        }
+
+        count = count/50;
+        
+        GeraCSV(count, "CountSort", path);  
+    }  
+    
+    public static void TestBucketSort(int vetor[] , String path) {
+
+        double count = 0;
+        BucketSort bs = new BucketSort();
+
+        for (int i = 0; i <50; i++) {
+
+            bs.binSort(vetor, 20001);
+            System.out.println("Numero de comparações: "+ bs.getComparacoes());   
+            count += bs.getComparacoes();
+            bs.resetComapacoes();
+        }
+
+        count = count/50;
+
+        GeraCSV(count, "BucketSort", path);  
+    }
+
+    public static void TestRadixSort(int vetor[] , String path) {
+
+        double count = 0;
+        RadixSort rs = new RadixSort();
+
+        for (int i = 0; i <50; i++) {
+
+            rs.radixsort(vetor, vetor.length);
+            System.out.println("Numero de comparações: "+ rs.getComparacoes());   
+            count += rs.getComparacoes();
+            rs.resetComapacoes();
+        }
+
+        count = count/50;
+
+        GeraCSV(count, "BucketSort", path);  
     }
 }
 
