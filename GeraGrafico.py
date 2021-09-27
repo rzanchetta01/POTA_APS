@@ -1,114 +1,125 @@
+from matplotlib import scale
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib.pyplot import figure
 
-algoritmo5 = []
-mediaComparacoes5 = []
+x5 = []
+y5 = []
 
-algoritmo10 = []
-mediaComparacoes10 = []
+x10 = []
+y10 = []
 
-algoritmo100 = []
-mediaComparacoes100 = []
+x100 = []
+y100 = []
 
-algoritmo1k = []
-mediaComparacoes1k = []
+x1k = []
+y1k = []
 
-algoritmo10k = []
-mediaComparacoes10k = []
-
-espaco = ' '
-valueInicial = '0'
+x10k = []
+y10k = []
 
 
+#Gera resultado vetores de tamanho 5
 dataset = open('T:\\UAM\\Pesquisa Ordenacao e Tecnica\\POTA_APS\\zmdVetor5.csv', 'r')
 
 for line in dataset:
-    algoritmo5.append(espaco)
-    mediaComparacoes5.append(valueInicial)
+
     line = line.strip()
     X, Y = line.split('|')
-    algoritmo5.append(X)  
-    mediaComparacoes5.append(Y)
-
+    Y = float(Y.replace(',', '.'))
+    x5.append(X)
+    y5.append(Y)
+    
 dataset.close()
 
-
-plt.bar(algoritmo5, mediaComparacoes5)
-plt.title('Media comparações em vetores de tamanho 5')
+figure(figsize=(8, 6), dpi=80)
+plt.bar(x5, y5)
+plt.title('resultado em vetores de tamanho 5')
+plt.xlabel('Algoritmos')
+plt.ylabel('Numero de Comparações')
 plt.show()
 
 
-
+#Gera resultado vetores de tamanho 10
 dataset = open('T:\\UAM\\Pesquisa Ordenacao e Tecnica\\POTA_APS\\zmdVetor10.csv', 'r')
 
 for line in dataset:
-    algoritmo10.append(espaco)
-    mediaComparacoes10.append(valueInicial)
+
     line = line.strip()
     X, Y = line.split('|')
-    algoritmo10.append(X)  
-    mediaComparacoes10.append(Y)
-
+    Y = float(Y.replace(',', '.'))
+    x10.append(X)
+    y10.append(Y)
+    
 dataset.close()
 
-plt.bar(algoritmo10, mediaComparacoes10)
-plt.title('Media comparações em vetores de tamanho 10')
+figure(figsize=(8, 6), dpi=80)
+plt.bar(x10, y10)
+plt.title('resultado em vetores de tamanho 10')
+plt.xlabel('Algoritmos')
+plt.ylabel('Numero de Comparações')
 plt.show()
 
 
-
+#Gera resultado vetores de tamanho 100
 dataset = open('T:\\UAM\\Pesquisa Ordenacao e Tecnica\\POTA_APS\\zmdVetor100.csv', 'r')
 
 for line in dataset:
-    algoritmo100.append(espaco)
-    mediaComparacoes100.append(valueInicial)
+
     line = line.strip()
     X, Y = line.split('|')
-    algoritmo100.append(X)  
-    mediaComparacoes100.append(Y)
-
+    Y = float(Y.replace(',', '.'))
+    x100.append(X)
+    y100.append(Y)
+    
 dataset.close()
 
-plt.bar(algoritmo100, mediaComparacoes100)
-plt.title('Media comparações em vetores de tamanho 100')
+figure(figsize=(8, 6), dpi=80)
+plt.bar(x100, y100)
+plt.title('resultado em vetores de tamanho 100')
+plt.xlabel('Algoritmos')
+plt.ylabel('Numero de Comparações')
 plt.show()
 
 
 
-
+#Gera resultado vetores de tamanho 1000
 dataset = open('T:\\UAM\\Pesquisa Ordenacao e Tecnica\\POTA_APS\\zmdVetor1000.csv', 'r')
 
 for line in dataset:
-    algoritmo1k.append(espaco)
-    mediaComparacoes1k.append(valueInicial)
+
     line = line.strip()
     X, Y = line.split('|')
-    algoritmo1k.append(X)  
-    mediaComparacoes1k.append(Y)
-
+    Y = float(Y.replace(',', '.'))
+    x1k.append(X)
+    y1k.append(Y)
+    
 dataset.close()
 
-plt.bar(algoritmo1k, mediaComparacoes1k)
-plt.title('Media comparações em vetores de tamanho 1000')
+figure(figsize=(8, 6), dpi=80)
+plt.bar(x1k, y1k)
+plt.title('resultado em vetores de tamanho 1000')
+plt.xlabel('Algoritmos')
+plt.ylabel('Numero de Comparações')
 plt.show()
 
-
-
-
+#Gera resultado vetores de tamanho 10000
 dataset = open('T:\\UAM\\Pesquisa Ordenacao e Tecnica\\POTA_APS\\zmdVetor10000.csv', 'r')
 
 for line in dataset:
-    algoritmo10k.append(espaco)
-    mediaComparacoes10k.append(valueInicial)
+
     line = line.strip()
     X, Y = line.split('|')
-    algoritmo10k.append(X)  
-    mediaComparacoes10k.append(Y)
-
+    Y = float(Y.replace(',', '.'))
+    x10k.append(X)
+    y10k.append(Y)
+    
 dataset.close()
 
-plt.bar(algoritmo10k, mediaComparacoes10k)
-plt.title('Media comparações em vetores de tamanho 10000')
+
+figure(figsize=(8, 6), dpi=80)
+plt.bar(x10k, y10k)
+plt.title('resultado em vetores de tamanho 10000')
+plt.xlabel('Algoritmos')
+plt.ylabel('Numero de Comparações')
 plt.show()
-
-

@@ -1,3 +1,9 @@
-InsertionSort,4
-SelectionnSort,15
-BubbleSort,15
+HeapSort|35,88
+CountSort|0,00
+BucketSort|0,00
+BucketSort|4,00
+InsertionSort|4,00
+MergeSort|9,00
+QuickSort|10,00
+BubbleSort|15,00
+SelectionSort|15,00
