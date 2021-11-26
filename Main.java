@@ -21,13 +21,16 @@ public class Main {
         RandomVet(vetor100);
         RandomVet(vetor1k);
         RandomVet(vetor10k);
-
+     
+   
         //Caminho de arquivo dos CSV
         String path5 = "T:\\UAM\\Pesquisa Ordenacao e Tecnica\\POTA_APS\\zmdVetor5.csv";
         String path10 = "T:\\UAM\\Pesquisa Ordenacao e Tecnica\\POTA_APS\\zmdVetor10.csv";
         String path100 = "T:\\UAM\\Pesquisa Ordenacao e Tecnica\\POTA_APS\\zmdVetor100.csv";
         String path1k = "T:\\UAM\\Pesquisa Ordenacao e Tecnica\\POTA_APS\\zmdVetor1000.csv";
         String path10k = "T:\\UAM\\Pesquisa Ordenacao e Tecnica\\POTA_APS\\zmdVetor10000.csv";
+
+        
 
         //Faz os 50 testes com os 9 algoritmos de teste em cada tamanho de vetor, além de armazenar os resultados usando o GeraCSV
         GeraTests(vetor5, path5);
@@ -81,6 +84,7 @@ public class Main {
         BubbleSort bs = new BubbleSort();
         
         for (int i = 0; i <50; i++) {
+            RandomVet(vetor);
             bs.bubbleSort(vetor);
             System.out.println("Numero de comparações: " + bs.getComparacoes());
             count += bs.getComparacoes();
@@ -100,6 +104,7 @@ public class Main {
         InsertionSort is = new InsertionSort();
         
         for (int i = 0; i <50; i++) {
+            RandomVet(vetor);
             is.insertionSort(vetor);
             System.out.println("Numero de comparações: " + is.getComparacoes());
             count += is.getComparacoes();
@@ -118,6 +123,7 @@ public class Main {
         SelectionSort ss = new SelectionSort();   
 
         for (int i = 0; i <50; i++) {
+            RandomVet(vetor);
             ss.selectionSort(vetor);
             System.out.println("Numero de comparações: "+ ss.getComparacoes());   
             count += ss.getComparacoes();
@@ -135,6 +141,7 @@ public class Main {
         QuickSort qs = new QuickSort();
 
         for (int i = 0; i <50; i++) {
+            RandomVet(vetor);
             qs.quickSort(vetor, 0, vetor.length -1);
             System.out.println("Numero de comparações: "+ qs.getComparacoes());   
             count += qs.getComparacoes();
@@ -153,6 +160,7 @@ public class Main {
         MergeSort ms = new MergeSort();
 
         for (int i = 0; i <50; i++) {
+            RandomVet(vetor);
             ms.ordena(vetor, 0, vetor.length - 1);
             System.out.println("Numero de comparações: "+ ms.getComparacoes());   
             count += ms.getComparacoes();
@@ -171,6 +179,7 @@ public class Main {
         HeapSort hs = new HeapSort();
 
         for (int i = 0; i <50; i++) {
+            RandomVet(vetor);
             hs.ordena(vetor);
             System.out.println("Numero de comparações: "+ hs.getComparacoes());   
             count += hs.getComparacoes();
@@ -188,7 +197,7 @@ public class Main {
         CountSort cs = new CountSort();
 
         for (int i = 0; i <50; i++) {
-
+            RandomVet(vetor);
             cs.countSort(vetor);       
             System.out.println("Numero de comparações: "+ cs.getComparacoes());   
             count += cs.getComparacoes();
@@ -206,7 +215,7 @@ public class Main {
         BucketSort bs = new BucketSort();
 
         for (int i = 0; i <50; i++) {
-
+            RandomVet(vetor);
             bs.binSort(vetor, 20001);
             System.out.println("Numero de comparações: "+ bs.getComparacoes());   
             count += bs.getComparacoes();
@@ -224,7 +233,7 @@ public class Main {
         RadixSort rs = new RadixSort();
 
         for (int i = 0; i <50; i++) {
-
+            RandomVet(vetor);
             rs.radixsort(vetor, vetor.length);
             System.out.println("Numero de comparações: "+ rs.getComparacoes());   
             count += rs.getComparacoes();
@@ -235,5 +244,6 @@ public class Main {
 
         GeraCSV(count, "BucketSort", path);  
     }
+
 }
 

@@ -1,9 +1,9 @@
-HeapSort|30614,10
+HeapSort|28742,76
 CountSort|0,00
 BucketSort|0,00
 BucketSort|999,00
 InsertionSort|999,00
 MergeSort|1999,00
-QuickSort|486616,00
+QuickSort|10917,84
 BubbleSort|500500,00
 SelectionSort|500500,00

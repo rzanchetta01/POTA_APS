@@ -16,9 +16,7 @@ public class HeapSort {
     }
 
     public void ordena(int vetor[]) {
-
-        
-        
+       
         for (int i = vetor.length / 2 - 1; i >= 0; i--)
         hpSort(vetor, vetor.length, i);
       
